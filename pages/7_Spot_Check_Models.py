@@ -17,7 +17,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.naive_bayes import GaussianNB
 from sklearn.ensemble import HistGradientBoostingClassifier
 from sklearn.neighbors import KNeighborsClassifier
-import pickle
+import pickle5 as pickle
 
 import warnings
 warnings.simplefilter(action='ignore', category=UserWarning)
