@@ -6,4 +6,4 @@ matplotlib
 seaborn==0.11.2
 scipy
 scikit-learn
-pickle
+pickle5
