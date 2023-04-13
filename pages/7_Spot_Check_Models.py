@@ -144,7 +144,7 @@ st.title("Spot Check Models")
 
 # Restore the model from file
 #LR_C_restored_model = pickle.load(open("https://github.com/towardsinnovationlab/Insurance_Cross_Selling_App/blob/main/LR_C_model_file.pkl","rb"))
-LR_C_restored_model = pd.read_pickle(r'https://github.com/towardsinnovationlab/Insurance_Cross_Selling_App/blob/main/LR_C_model_file.pkl')
+LR_C_restored_model = pd.read_pickle('https://github.com/towardsinnovationlab/Insurance_Cross_Selling_App/blob/main/LR_C_model_file.pkl')
 predictions_tr = LR_C_restored_model.predict_proba(X_train)[:, 1]
 predictions_t = LR_C_restored_model.predict_proba(X_test)[:, 1]
 LR_auc_train = roc_auc_score(y_train, predictions_tr)  
@@ -153,7 +153,7 @@ score= {'model_c':['LR_C'], 'auc_train_c':[LR_auc_train],'auc_test_c':[LR_auc_te
 LR_score= pd.DataFrame(score)
 # Restore the model from file
 #KNB_C_restored_model = pickle.load(open("https://github.com/towardsinnovationlab/Insurance_Cross_Selling_App/blob/main/KNB_C_model_file.pkl","rb"))
-KNB_C_restored_model = pd.read_pickle(r'https://github.com/towardsinnovationlab/Insurance_Cross_Selling_App/blob/main/KNB_C_model_file.pkl')
+KNB_C_restored_model = pd.read_pickle('https://github.com/towardsinnovationlab/Insurance_Cross_Selling_App/blob/main/KNB_C_model_file.pkl')
 predictions_tr = KNB_C_restored_model.predict_proba(X_train)[:, 1]
 predictions_t = KNB_C_restored_model.predict_proba(X_test)[:, 1]
 KNB_auc_train = roc_auc_score(y_train, predictions_tr)  
@@ -162,7 +162,7 @@ score= {'model_c':['KNB_C'], 'auc_train_c':[KNB_auc_train],'auc_test_c':[KNB_auc
 KNB_score= pd.DataFrame(score)
 # Restore the model from file
 #GNB_C_restored_model = pickle.load(open("https://github.com/towardsinnovationlab/Insurance_Cross_Selling_App/blob/main/GNB_C_model_file.pkl","rb"))
-GNB_C_restored_model = pd.read_pickle(r'https://github.com/towardsinnovationlab/Insurance_Cross_Selling_App/blob/main/GNB_C_model_file.pkl')
+GNB_C_restored_model = pd.read_pickle('https://github.com/towardsinnovationlab/Insurance_Cross_Selling_App/blob/main/GNB_C_model_file.pkl')
 predictions_tr = GNB_C_restored_model.predict_proba(X_train)[:, 1]
 predictions_t = GNB_C_restored_model.predict_proba(X_test)[:, 1]
 GNB_auc_train = roc_auc_score(y_train, predictions_tr)  
@@ -171,7 +171,7 @@ score= {'model_c':['GNB_C'], 'auc_train_c':[GNB_auc_train],'auc_test_c':[GNB_auc
 GNB_score= pd.DataFrame(score)
 # Restore the model from file
 #HGBM_C_restored_model = pickle.load(open("https://github.com/towardsinnovationlab/Insurance_Cross_Selling_App/blob/main/HGBM_C_model_file.pkl","rb"))
-HGBM_C_restored_model = pd.read_pickle(r'https://github.com/towardsinnovationlab/Insurance_Cross_Selling_App/blob/main/HGBM_C_model_file.pkl')
+HGBM_C_restored_model = pd.read_pickle('https://github.com/towardsinnovationlab/Insurance_Cross_Selling_App/blob/main/HGBM_C_model_file.pkl')
 predictions_tr = HGBM_C_restored_model.predict_proba(X_train)[:, 1]
 predictions_t = HGBM_C_restored_model.predict_proba(X_test)[:, 1]
 HGBM_auc_train = roc_auc_score(y_train, predictions_tr)  
