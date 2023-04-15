@@ -41,11 +41,11 @@ DATA_URL_yte = ('./data/y_test.csv')
 y_test = pd.read_csv(DATA_URL_yte)
 
 # LR Calibration models
-skf = StratifiedKFold(n_splits=5,random_state=0, shuffle=True)
-LR_C= CalibratedClassifierCV(base_estimator=LogisticRegression(random_state=0), method="isotonic")
-param_grid = {}
-model = GridSearchCV(LR_C,param_grid,cv=skf)
-classifier = model.fit(X_train, y_train)
+#skf = StratifiedKFold(n_splits=5,random_state=0, shuffle=True)
+#LR_C= CalibratedClassifierCV(base_estimator=LogisticRegression(random_state=0), method="isotonic")
+#param_grid = {}
+#model = GridSearchCV(LR_C,param_grid,cv=skf)
+#classifier = model.fit(X_train, y_train)
 # save the model to disk
 #LR_filename = ('./data/LR_C_model.sav')
 #joblib.dump(LR_C_model, LR_filename)
@@ -61,9 +61,9 @@ classifier = model.fit(X_train, y_train)
 #pickle_in.close()
 
 # save the model to disk
-with open('https://github.com/towardsinnovationlab/Insurance_Cross_Selling_App/main/data/classifier.pkl', 'wb') as pickle_out:
-    serialized_classifier = pickle.dumps(classifier)
-    pickle_out.write(serialized_classifier)
+#with open('./data/classifier.pkl', 'wb') as pickle_out:
+#    serialized_classifier = pickle.dumps(classifier)
+#    pickle_out.write(serialized_classifier)
 
 # loading in the model to predict on the data
 with open('./data/classifier.pkl', 'rb') as pickle_in:
