@@ -54,7 +54,7 @@ LR_score= pd.DataFrame(score)
 
 # GNB model
 # loading in the model to predict on the data
-with open('./data/GNB_classifier.pkl', 'rb') as pickle_in:
+with open('./data/GNB_classifier_.pkl', 'rb') as pickle_in:
     GNB_classifier = pickle.load(pickle_in)
     
 predictions_tr = GNB_classifier.predict_proba(X_train)[:, 1]
