@@ -10,8 +10,7 @@ import warnings
 warnings.simplefilter(action='ignore', category=UserWarning)
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
-DATA_URL = ('https://raw.githubusercontent.com/claudio1975/Insurance_Cross_Sell_Prediction_Web_App/main/train_small_update.csv')
-df = pd.read_csv(DATA_URL)
+df = pd.read_csv('./data/train.csv')
 
 # Formatting features
 df['Driving_License'] = df['Driving_License'].astype('object')
