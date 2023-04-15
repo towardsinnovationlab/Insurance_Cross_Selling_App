@@ -43,7 +43,7 @@ y_test = pd.read_csv(DATA_URL_yte)
 # LR model
 # loading in the model to predict on the data
 with open('./data/LR_classifier.pkl', 'rb') as pickle_in:
-    classifier = pickle.load(pickle_in)
+    LR_classifier = pickle.load(pickle_in)
     
 predictions_tr = LR_classifier.predict_proba(X_train)[:, 1]
 predictions_t = LR_classifier.predict_proba(X_test)[:, 1]
@@ -55,7 +55,7 @@ LR_score= pd.DataFrame(score)
 # GNB model
 # loading in the model to predict on the data
 with open('./data/GNB_classifier.pkl', 'rb') as pickle_in:
-    classifier = pickle.load(pickle_in)
+    GNB_classifier = pickle.load(pickle_in)
     
 predictions_tr = GNB_classifier.predict_proba(X_train)[:, 1]
 predictions_t = GNB_classifier.predict_proba(X_test)[:, 1]
@@ -67,7 +67,7 @@ GNB_score= pd.DataFrame(score)
 # HGBM model
 # loading in the model to predict on the data
 with open('./data/HGBM_classifier.pkl', 'rb') as pickle_in:
-    classifier = pickle.load(pickle_in)
+    HGBM_classifier = pickle.load(pickle_in)
     
 predictions_tr = HGBM_classifier.predict_proba(X_train)[:, 1]
 predictions_t = HGBM_classifier.predict_proba(X_test)[:, 1]
