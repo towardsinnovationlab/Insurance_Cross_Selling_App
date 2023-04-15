@@ -73,7 +73,7 @@ predictions_tr = HGBM_classifier.predict_proba(X_train)[:, 1]
 predictions_t = HGBM_classifier.predict_proba(X_test)[:, 1]
 HGBM_auc_train = roc_auc_score(y_train, predictions_tr)  
 HGBM_auc_test = roc_auc_score(y_test, predictions_t) 
-score= {'model':['HGBM'], 'auc_train_c':[HGBM_auc_train],'auc_test_c':[HGBM_auc_test]}
+score= {'model':['HGBM'], 'auc_train':[HGBM_auc_train],'auc_test':[HGBM_auc_test]}
 HGBM_score= pd.DataFrame(score)
 
 score_cal = LR_score.append(GNB_score)
@@ -85,13 +85,13 @@ print("Spot Check Models")
 plt.rcParams['figure.figsize']=(15,5)
 fig = plt.figure()
 plt.subplot(1,2,1)  
-sns.stripplot(x="model_c", y="auc_train_c",data=score_cal,size=15)
+sns.stripplot(x="model", y="auc_train",data=score_cal,size=15)
 plt.xticks(rotation=45)
 plt.title('Train results')
 axes = plt.gca()
 axes.set_ylim([0,1.1])
 plt.subplot(1,2,2)
-sns.stripplot(x="model_c", y="auc_test_c",data=score_cal,size=15)
+sns.stripplot(x="model", y="auc_test",data=score_cal,size=15)
 plt.xticks(rotation=45)
 plt.title('Test results')
 axes = plt.gca()
