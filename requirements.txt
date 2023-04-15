@@ -8,4 +8,4 @@ scipy
 scikit-learn
 joblib
 requests
-io
+io==1.2
