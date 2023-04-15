@@ -45,7 +45,7 @@ skf = StratifiedKFold(n_splits=5,random_state=0, shuffle=True)
 LR_C= CalibratedClassifierCV(base_estimator=LogisticRegression(random_state=0), method="isotonic")
 param_grid = {}
 model = GridSearchCV(LR_C,param_grid,cv=skf)
-LR_C_model = model.fit(X_train, y_train)
+classifier = model.fit(X_train, y_train)
 # save the model to disk
 #LR_filename = ('./data/LR_C_model.sav')
 #joblib.dump(LR_C_model, LR_filename)
@@ -59,8 +59,8 @@ pickle_out.close()
 pickle_in = open('./data/classifier.pkl', 'rb')
 classifier = pickle.loads(pickle_in)
 
-predictions_tr = LR_C_restored_model.predict_proba(X_train)[:, 1]
-predictions_t = LR_C_restored_model.predict_proba(X_test)[:, 1]
+predictions_tr = classifier.predict_proba(X_train)[:, 1]
+predictions_t = classifier.predict_proba(X_test)[:, 1]
 LR_auc_train = roc_auc_score(y_train, predictions_tr)  
 LR_auc_test = roc_auc_score(y_test, predictions_t) 
 score= {'model_c':['LR_C'], 'auc_train_c':[LR_auc_train],'auc_test_c':[LR_auc_test]}
