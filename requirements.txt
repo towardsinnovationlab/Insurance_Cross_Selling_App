@@ -7,5 +7,4 @@ seaborn
 scipy
 scikit-learn
 requests
-pickle5
 joblib
