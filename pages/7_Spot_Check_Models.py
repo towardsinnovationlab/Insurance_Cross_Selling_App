@@ -52,7 +52,8 @@ classifier = model.fit(X_train, y_train)
 # load the model from disk
 #LR_C_restored_model = joblib.load(LR_filename)
 pickle_out = open('./data/classifier.pkl', 'wb')
-pickle.dumps(classifier, pickle_out)
+serialized_classifier = pickle.dumps(classifier, pickle_out)
+pickle_out.write(serialized_classifier)
 pickle_out.close()
 # loading in the model to predict on the data
 pickle_in = open('./data/classifier.pkl', 'rb')
