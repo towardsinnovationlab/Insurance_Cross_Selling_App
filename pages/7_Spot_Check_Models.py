@@ -46,7 +46,8 @@ y_test = pd.read_csv(DATA_URL_yte)
 
 # LR Calibration models
 # Download the model file from the GitHub repository and read it into a memory buffer:
-LR_C_restored_model=joblib.load("https://github.com/towardsinnovationlab/Insurance_Cross_Selling_App/blob/main/LR_C_model_file.pkl")
+MODE_URL="https://github.com/towardsinnovationlab/Insurance_Cross_Selling_App/raw/main/LR_C_model_file.pkl"
+LR_C_restored_model=joblib.load(MODE_URL)
 #LR_url = 'https://github.com/towardsinnovationlab/Insurance_Cross_Selling_App/raw/main/LR_C_model.sav'
 #LR_response = requests.get(LR_url)
 #LR_model_buf = BytesIO(LR_response.content)
