@@ -5,7 +5,7 @@ numpy
 matplotlib
 seaborn
 scipy
-scikit-learn
+scikit-learn==1.0.2
 requests
 joblib
 pickle5
