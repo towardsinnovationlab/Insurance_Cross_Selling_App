@@ -42,7 +42,7 @@ y_test = pd.read_csv(DATA_URL_yte)
 
 # LR model
 # loading in the model to predict on the data
-with open('./data/LR_classifier.pkl', 'rb') as pickle_in:
+with open('./data/LR_classifier_.pkl', 'rb') as pickle_in:
     LR_classifier = pickle.load(pickle_in)
     
 predictions_tr = LR_classifier.predict_proba(X_train)[:, 1]
