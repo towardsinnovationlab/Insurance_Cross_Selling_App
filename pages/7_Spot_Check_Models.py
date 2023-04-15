@@ -49,7 +49,7 @@ y_test = pd.read_csv(DATA_URL_yte)
 LR_url = 'https://github.com/towardsinnovationlab/Insurance_Cross_Selling_App/raw/main/LR_C_model.sav'
 LR_response = requests.get(LR_url)
 LR_model_buf = LR_response.content
-LR_C_restored_model = pickle.loads(LR_model_buf)
+LR_C_restored_model = joblib.loads(LR_model_buf)
 
 # Load the model data into a model object
 #with io.BytesIO(model_data) as stream:
