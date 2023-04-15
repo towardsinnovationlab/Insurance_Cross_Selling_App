@@ -19,6 +19,7 @@ from sklearn.ensemble import HistGradientBoostingClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.calibration import CalibratedClassifierCV
 import joblib
+import pickle5 as pickle
 
 
 import warnings
@@ -46,10 +47,18 @@ param_grid = {}
 model = GridSearchCV(LR_C,param_grid,cv=skf)
 LR_C_model = model.fit(X_train, y_train)
 # save the model to disk
-LR_filename = ('./data/LR_C_model.sav')
-joblib.dump(LR_C_model, LR_filename)
+#LR_filename = ('./data/LR_C_model.sav')
+#joblib.dump(LR_C_model, LR_filename)
 # load the model from disk
-LR_C_restored_model = joblib.load(LR_filename)
+#LR_C_restored_model = joblib.load(LR_filename)
+
+pickle_out = open('./data/classifier.pkl', 'wb')
+pickle.dump(classifier, pickle_out)
+pickle_out.close()
+# loading in the model to predict on the data
+pickle_in = open('./data/classifier.pkl', 'rb')
+classifier = pickle.load(pickle_in)
+
 predictions_tr = LR_C_restored_model.predict_proba(X_train)[:, 1]
 predictions_t = LR_C_restored_model.predict_proba(X_test)[:, 1]
 LR_auc_train = roc_auc_score(y_train, predictions_tr)  
