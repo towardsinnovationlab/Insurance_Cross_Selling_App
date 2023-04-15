@@ -53,11 +53,11 @@ LR_C_model = model.fit(X_train, y_train)
 #LR_C_restored_model = joblib.load(LR_filename)
 
 pickle_out = open('./data/classifier.pkl', 'wb')
-pickle.dump(classifier, pickle_out)
+pickle.dumps(classifier, pickle_out)
 pickle_out.close()
 # loading in the model to predict on the data
 pickle_in = open('./data/classifier.pkl', 'rb')
-classifier = pickle.load(pickle_in)
+classifier = pickle.loads(pickle_in)
 
 predictions_tr = LR_C_restored_model.predict_proba(X_train)[:, 1]
 predictions_t = LR_C_restored_model.predict_proba(X_test)[:, 1]
