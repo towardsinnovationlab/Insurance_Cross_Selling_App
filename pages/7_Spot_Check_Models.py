@@ -49,49 +49,60 @@ predictions_tr = LR_classifier.predict_proba(X_train)[:, 1]
 predictions_t = LR_classifier.predict_proba(X_test)[:, 1]
 LR_auc_train = roc_auc_score(y_train, predictions_tr)  
 LR_auc_test = roc_auc_score(y_test, predictions_t) 
-score= {'model_c':['LR_C'], 'auc_train_c':[LR_auc_train],'auc_test_c':[LR_auc_test]}
+score= {'model':['LR'], 'auc_train_c':[LR_auc_train],'auc_test_c':[LR_auc_test]}
 LR_score= pd.DataFrame(score)
 
-# LR model
+# GNB model
 # loading in the model to predict on the data
-with open('./data/LR_classifier.pkl', 'rb') as pickle_in:
+with open('./data/GNB_classifier.pkl', 'rb') as pickle_in:
     classifier = pickle.load(pickle_in)
     
-predictions_tr = LR_classifier.predict_proba(X_train)[:, 1]
-predictions_t = LR_classifier.predict_proba(X_test)[:, 1]
-LR_auc_train = roc_auc_score(y_train, predictions_tr)  
-LR_auc_test = roc_auc_score(y_test, predictions_t) 
-score= {'model_c':['LR_C'], 'auc_train_c':[LR_auc_train],'auc_test_c':[LR_auc_test]}
-LR_score= pd.DataFrame(score)
+predictions_tr = GNB_classifier.predict_proba(X_train)[:, 1]
+predictions_t = GNB_classifier.predict_proba(X_test)[:, 1]
+GNB_auc_train = roc_auc_score(y_train, predictions_tr)  
+GNB_auc_test = roc_auc_score(y_test, predictions_t) 
+score= {'model':['GNB'], 'auc_train_c':[GNB_auc_train],'auc_test_c':[GNB_auc_test]}
+GNB_score= pd.DataFrame(score)
 
-# LR model
+# HGBM model
 # loading in the model to predict on the data
-with open('./data/LR_classifier.pkl', 'rb') as pickle_in:
+with open('./data/HGBM_classifier.pkl', 'rb') as pickle_in:
     classifier = pickle.load(pickle_in)
     
-predictions_tr = LR_classifier.predict_proba(X_train)[:, 1]
-predictions_t = LR_classifier.predict_proba(X_test)[:, 1]
-LR_auc_train = roc_auc_score(y_train, predictions_tr)  
-LR_auc_test = roc_auc_score(y_test, predictions_t) 
-score= {'model_c':['LR_C'], 'auc_train_c':[LR_auc_train],'auc_test_c':[LR_auc_test]}
-LR_score= pd.DataFrame(score)
+predictions_tr = HGBM_classifier.predict_proba(X_train)[:, 1]
+predictions_t = HGBM_classifier.predict_proba(X_test)[:, 1]
+HGBM_auc_train = roc_auc_score(y_train, predictions_tr)  
+HGBM_auc_test = roc_auc_score(y_test, predictions_t) 
+score= {'model':['HGBM'], 'auc_train_c':[HGBM_auc_train],'auc_test_c':[HGBM_auc_test]}
+HGBM_score= pd.DataFrame(score)
 
-# LR model
-# loading in the model to predict on the data
-with open('./data/LR_classifier.pkl', 'rb') as pickle_in:
-    classifier = pickle.load(pickle_in)
-    
-predictions_tr = LR_classifier.predict_proba(X_train)[:, 1]
-predictions_t = LR_classifier.predict_proba(X_test)[:, 1]
-LR_auc_train = roc_auc_score(y_train, predictions_tr)  
-LR_auc_test = roc_auc_score(y_test, predictions_t) 
-score= {'model_c':['LR_C'], 'auc_train_c':[LR_auc_train],'auc_test_c':[LR_auc_test]}
-LR_score= pd.DataFrame(score)
+score_cal = LR_score.append(KNB_score)
+score_cal = score_cal.append(GNB_score)
+score_cal = score_cal.append(HGBM_score)
+score_cal
+
+# Plot results for a graphical comparison
+print("Spot Check Models")
+plt.rcParams['figure.figsize']=(15,5)
+fig = plt.figure()
+plt.subplot(1,2,1)  
+sns.stripplot(x="model_c", y="auc_train_c",data=score_cal,size=15)
+plt.xticks(rotation=45)
+plt.title('Train results')
+axes = plt.gca()
+axes.set_ylim([0,1.1])
+plt.subplot(1,2,2)
+sns.stripplot(x="model_c", y="auc_test_c",data=score_cal,size=15)
+plt.xticks(rotation=45)
+plt.title('Test results')
+axes = plt.gca()
+axes.set_ylim([0,1.1])
+st.pyplot(fig)
 
 
 st.markdown("""
 Logistic Regression (LR) is the benchmark model used in Insurance, and it has been compared with
 
-Naive Bayes model (GNB), K-Nearest Neighbors model (KNB) and Hist Gradient Boosting Machine (HGBM).
+Naive Bayes model (GNB), and Hist Gradient Boosting Machine (HGBM).
 
 """)
