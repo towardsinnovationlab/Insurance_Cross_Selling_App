@@ -7,7 +7,6 @@ import warnings
 warnings.simplefilter(action='ignore', category=UserWarning)
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
-#DATA_URL = ('./data/train.csv')
 df = pd.read_csv('./data/train.csv')
 
 if st.checkbox('Show raw data'):
