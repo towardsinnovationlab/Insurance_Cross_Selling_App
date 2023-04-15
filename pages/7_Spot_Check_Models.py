@@ -76,8 +76,7 @@ HGBM_auc_test = roc_auc_score(y_test, predictions_t)
 score= {'model':['HGBM'], 'auc_train_c':[HGBM_auc_train],'auc_test_c':[HGBM_auc_test]}
 HGBM_score= pd.DataFrame(score)
 
-score_cal = LR_score.append(KNB_score)
-score_cal = score_cal.append(GNB_score)
+score_cal = LR_score.append(GNB_score)
 score_cal = score_cal.append(HGBM_score)
 score_cal
 
