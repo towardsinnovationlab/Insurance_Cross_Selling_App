@@ -49,7 +49,7 @@ LR_url = 'https://github.com/towardsinnovationlab/Insurance_Cross_Selling_App/ra
 LR_response = requests.get(LR_url)
 LR_model_buf = LR_response.content
 # Load the pre-trained model from the memory buffer:
-LR_C_restored_model = joblib.load(LR_model_buf)
+LR_C_restored_model = pickle.load(LR_model_buf)
 # Make predictions
 predictions_tr = LR_C_restored_model.predict_proba(X_train)[:, 1]
 predictions_t = LR_C_restored_model.predict_proba(X_test)[:, 1]
