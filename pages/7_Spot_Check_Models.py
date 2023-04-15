@@ -44,11 +44,11 @@ y_test = pd.read_csv(DATA_URL_yte)
 
 # LR Calibration models
 # Download the model file from the GitHub repository and read it into a memory buffer:
-LR_url = './data/LR_C_model.sav'
-LR_response = requests.get(LR_url)
-LR_model_buf = BytesIO(LR_response.content)
+#LR_url = './data/LR_C_model.sav'
+#LR_response = requests.get(LR_url)
+#LR_model_buf = BytesIO(LR_response.content)
 # Load the pre-trained model from the memory buffer:
-LR_C_restored_model = joblib.load(LR_model_buf)
+LR_C_restored_model = joblib.load('./data/LR_C_model.sav')
 # Make predictions
 predictions_tr = LR_C_restored_model.predict_proba(X_train)[:, 1]
 predictions_t = LR_C_restored_model.predict_proba(X_test)[:, 1]
