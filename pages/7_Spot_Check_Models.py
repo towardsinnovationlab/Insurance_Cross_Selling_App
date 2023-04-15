@@ -66,7 +66,7 @@ GNB_score= pd.DataFrame(score)
 
 # HGBM model
 # loading in the model to predict on the data
-with open('./data/HGBM_classifier.pkl', 'rb') as pickle_in:
+with open('./data/HGBM_classifier_.pkl', 'rb') as pickle_in:
     HGBM_classifier = pickle.load(pickle_in)
     
 predictions_tr = HGBM_classifier.predict_proba(X_train)[:, 1]
