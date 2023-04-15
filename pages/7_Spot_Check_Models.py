@@ -19,7 +19,7 @@ from sklearn.ensemble import HistGradientBoostingClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.calibration import CalibratedClassifierCV
 #import joblib
-import pickle
+import pickle5
 import requests
 #from io import BytesIO
 
