@@ -61,12 +61,12 @@ classifier = model.fit(X_train, y_train)
 #pickle_in.close()
 
 # save the model to disk
-with open('./data/classifier.pkl', 'wb') as pickle_out:
+with open('https://github.com/towardsinnovationlab/Insurance_Cross_Selling_App/tree/main/data/classifier.pkl', 'wb') as pickle_out:
     serialized_classifier = pickle.dumps(classifier)
     pickle_out.write(serialized_classifier)
 
 # loading in the model to predict on the data
-with open('./data/classifier.pkl', 'rb') as pickle_in:
+with open('https://github.com/towardsinnovationlab/Insurance_Cross_Selling_App/tree/main/data/classifier.pkl', 'rb') as pickle_in:
     classifier = pickle.load(pickle_in)
     
 predictions_tr = classifier.predict_proba(X_train)[:, 1]
