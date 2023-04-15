@@ -41,15 +41,18 @@ y_train = pd.read_csv(DATA_URL_ytr)
 DATA_URL_yte = ('./data/y_test.csv')
 y_test = pd.read_csv(DATA_URL_yte)
 
-
-# LR Calibration models
-# Download the model file from the GitHub repository and read it into a memory buffer:
-#LR_url = './data/LR_C_model.sav'
-#LR_response = requests.get(LR_url)
-#LR_model_buf = BytesIO(LR_response.content)
-# Load the pre-trained model from the memory buffer:
-LR_C_restored_model = joblib.load('./data/LR_C_model.sav')
-# Make predictions
+# Calibration models
+# Spot Check Algorithms
+skf = StratifiedKFold(n_splits=5,random_state=0, shuffle=True)
+LR_C= CalibratedClassifierCV(base_estimator=LogisticRegression(random_state=0), method="isotonic")
+param_grid = {}
+model = GridSearchCV(LR_C,param_grid,cv=skf)
+LR_C_model = model.fit(X_train, y_train)
+# save the model to disk
+LR_filename = 'LR_C_model.sav'
+joblib.dump(LR_C_model, LR_filename)
+# load the model from disk
+LR_C_restored_model = joblib.load(LR_filename)
 predictions_tr = LR_C_restored_model.predict_proba(X_train)[:, 1]
 predictions_t = LR_C_restored_model.predict_proba(X_test)[:, 1]
 LR_auc_train = roc_auc_score(y_train, predictions_tr)  
