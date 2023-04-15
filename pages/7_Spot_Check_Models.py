@@ -50,7 +50,7 @@ model = GridSearchCV(LR_C,param_grid,cv=skf)
 LR_C_model = model.fit(X_train, y_train)
 # save the model to disk
 LR_filename = 'LR_C_model.sav'
-joblib.dump(LR_C_model, LR_filename)
+#joblib.dump(LR_C_model, LR_filename)
 # load the model from disk
 LR_C_restored_model = joblib.load(LR_filename)
 predictions_tr = LR_C_restored_model.predict_proba(X_train)[:, 1]
