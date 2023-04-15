@@ -49,7 +49,7 @@ predictions_tr = LR_classifier.predict_proba(X_train)[:, 1]
 predictions_t = LR_classifier.predict_proba(X_test)[:, 1]
 LR_auc_train = roc_auc_score(y_train, predictions_tr)  
 LR_auc_test = roc_auc_score(y_test, predictions_t) 
-score= {'model':['LR'], 'auc_train_c':[LR_auc_train],'auc_test_c':[LR_auc_test]}
+score= {'model':['LR'], 'auc_train':[LR_auc_train],'auc_test':[LR_auc_test]}
 LR_score= pd.DataFrame(score)
 
 # GNB model
@@ -61,7 +61,7 @@ predictions_tr = GNB_classifier.predict_proba(X_train)[:, 1]
 predictions_t = GNB_classifier.predict_proba(X_test)[:, 1]
 GNB_auc_train = roc_auc_score(y_train, predictions_tr)  
 GNB_auc_test = roc_auc_score(y_test, predictions_t) 
-score= {'model':['GNB'], 'auc_train_c':[GNB_auc_train],'auc_test_c':[GNB_auc_test]}
+score= {'model':['GNB'], 'auc_train':[GNB_auc_train],'auc_test':[GNB_auc_test]}
 GNB_score= pd.DataFrame(score)
 
 # HGBM model
