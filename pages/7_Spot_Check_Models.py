@@ -18,10 +18,10 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.ensemble import HistGradientBoostingClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.calibration import CalibratedClassifierCV
-import joblib
+#import joblib
+import pickle
 import requests
-import io
-from io import BytesIO
+#from io import BytesIO
 
 
 import warnings
@@ -47,9 +47,9 @@ y_test = pd.read_csv(DATA_URL_yte)
 # Download the model file from the GitHub repository and read it into a memory buffer:
 LR_url = 'https://github.com/towardsinnovationlab/Insurance_Cross_Selling_App/raw/main/LR_C_model.sav'
 LR_response = requests.get(LR_url)
-LR_model_buf = BytesIO(LR_response.content)
+LR_model_buf = LR_response.content
 # Load the pre-trained model from the memory buffer:
-LR_C_restored_model = joblib.load(LR_model_buf)
+LR_C_restored_model = pickle.load(LR_model_buf)
 # Make predictions
 predictions_tr = LR_C_restored_model.predict_proba(X_train)[:, 1]
 predictions_t = LR_C_restored_model.predict_proba(X_test)[:, 1]
@@ -62,9 +62,9 @@ LR_score= pd.DataFrame(score)
 # Download the model file from the GitHub repository and read it into a memory buffer:
 KNB_url = 'https://github.com/towardsinnovationlab/Insurance_Cross_Selling_App/raw/main/KNB_C_model.sav'
 KNB_response = requests.get(KNB_url)
-KNB_model_buf = BytesIO(KNB_response.content)
+KNB_model_buf = KNB_response.content
 # Load the pre-trained model from the memory buffer:
-KNB_C_restored_model = joblib.load(KNB_model_buf)
+KNB_C_restored_model = pickle.load(KNB_model_buf)
 # Make predictions
 predictions_tr = KNB_C_restored_model.predict_proba(X_train)[:, 1]
 predictions_t = KNB_C_restored_model.predict_proba(X_test)[:, 1]
@@ -77,9 +77,9 @@ KNB_score= pd.DataFrame(score)
 # Download the model file from the GitHub repository and read it into a memory buffer:
 GNB_url = 'https://github.com/towardsinnovationlab/Insurance_Cross_Selling_App/raw/main/GNB_C_model.sav'
 GNB_response = requests.get(GNB_url)
-GNB_model_buf = BytesIO(GNB_response.content)
+GNB_model_buf = GNB_response.content
 # Load the pre-trained model from the memory buffer:
-GNB_C_restored_model = joblib.load(GNB_model_buf)
+GNB_C_restored_model = pickle.load(GNB_model_buf)
 # Make predictions
 predictions_tr = GNB_C_restored_model.predict_proba(X_train)[:, 1]
 predictions_t = GNB_C_restored_model.predict_proba(X_test)[:, 1]
@@ -92,9 +92,9 @@ GNB_score= pd.DataFrame(score)
 # Download the model file from the GitHub repository and read it into a memory buffer:
 HGBM_url = 'https://github.com/towardsinnovationlab/Insurance_Cross_Selling_App/raw/main/HGBM_C_model.sav'
 HGBM_response = requests.get(HGBM_url)
-HGBM_model_buf = BytesIO(HGBM_response.content)
+HGBM_model_buf = HGBM_response.content
 # Load the pre-trained model from the memory buffer:
-HGBM_C_restored_model = joblib.load(HGBM_model_buf)
+HGBM_C_restored_model = pickle.load(HGBM_model_buf)
 # Make predictions
 predictions_tr = HGBM_C_restored_model.predict_proba(X_train)[:, 1]
 predictions_t = HGBM_C_restored_model.predict_proba(X_test)[:, 1]
