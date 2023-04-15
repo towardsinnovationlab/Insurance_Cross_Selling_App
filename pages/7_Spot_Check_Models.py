@@ -40,14 +40,14 @@ DATA_URL_yte = ('./data/y_test.csv')
 y_test = pd.read_csv(DATA_URL_yte)
 
 # LR Calibration models
-#skf = StratifiedKFold(n_splits=5,random_state=0, shuffle=True)
-#LR_C= CalibratedClassifierCV(base_estimator=LogisticRegression(random_state=0), method="isotonic")
-#param_grid = {}
-#model = GridSearchCV(LR_C,param_grid,cv=skf)
-#LR_C_model = model.fit(X_train, y_train)
+skf = StratifiedKFold(n_splits=5,random_state=0, shuffle=True)
+LR_C= CalibratedClassifierCV(base_estimator=LogisticRegression(random_state=0), method="isotonic")
+param_grid = {}
+model = GridSearchCV(LR_C,param_grid,cv=skf)
+LR_C_model = model.fit(X_train, y_train)
 # save the model to disk
 LR_filename = ('./data/LR_C_model.sav')
-#joblib.dump(LR_C_model, LR_filename)
+joblib.dump(LR_C_model, LR_filename)
 # load the model from disk
 LR_C_restored_model = joblib.load(LR_filename)
 predictions_tr = LR_C_restored_model.predict_proba(X_train)[:, 1]
