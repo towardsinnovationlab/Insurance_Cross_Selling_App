@@ -18,7 +18,7 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.ensemble import HistGradientBoostingClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.calibration import CalibratedClassifierCV
-#import joblib
+import joblib
 import pickle5 as pickle
 import requests
 #from io import BytesIO
@@ -47,9 +47,13 @@ y_test = pd.read_csv(DATA_URL_yte)
 # Download the model file from the GitHub repository and read it into a memory buffer:
 LR_url = 'https://github.com/towardsinnovationlab/Insurance_Cross_Selling_App/raw/main/LR_C_model.sav'
 LR_response = requests.get(LR_url)
-LR_model_buf = LR_response.content
+model_data = LR_response.content
+# Load the model data into a model object
+with io.BytesIO(model_data) as stream:
+    LR_model_buf = stream.read()
+    LR_C_restored_model = pickle.load(LR_model_buf)
 # Load the pre-trained model from the memory buffer:
-LR_C_restored_model = pickle.load(LR_model_buf)
+#LR_C_restored_model = pickle.load(LR_model_buf)
 # Make predictions
 predictions_tr = LR_C_restored_model.predict_proba(X_train)[:, 1]
 predictions_t = LR_C_restored_model.predict_proba(X_test)[:, 1]
