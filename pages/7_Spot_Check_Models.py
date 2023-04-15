@@ -51,7 +51,7 @@ model_data = LR_response.content
 # Load the model data into a model object
 with io.BytesIO(model_data) as stream:
     LR_model_buf = stream.read()
-    LR_C_restored_model = pickle.load(LR_model_buf)
+    LR_C_restored_model = joblib.load(LR_model_buf)
 # Load the pre-trained model from the memory buffer:
 #LR_C_restored_model = pickle.load(LR_model_buf)
 # Make predictions
