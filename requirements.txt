@@ -6,6 +6,6 @@ matplotlib
 seaborn
 scipy
 scikit-learn
-joblib
+pickle
 requests
 
