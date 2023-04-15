@@ -20,6 +20,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.calibration import CalibratedClassifierCV
 import joblib
 import requests
+import io
 from io import BytesIO
 
 
