@@ -81,7 +81,6 @@ score_cal = score_cal.append(HGBM_score)
 score_cal
 
 # Plot results for a graphical comparison
-print("Spot Check Models")
 plt.rcParams['figure.figsize']=(15,5)
 fig = plt.figure()
 plt.subplot(1,2,1)  
