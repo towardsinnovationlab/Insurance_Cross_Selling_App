@@ -80,7 +80,7 @@ def plot_roc_auc(y_test, y_score, classes):
     plt.legend(loc="lower right")
     st.pyplot(fig)
 
-print('ROC on train')
+st.write('ROC on train')
 plot_roc_auc(y_train, HGBM_tclassifier.predict_proba(X_train)[:, 1], 2)
-print('ROC on test')
+st.write('ROC on test')
 plot_roc_auc(y_test, HGBM_tclassifier.predict_proba(X_test)[:, 1], 2)
