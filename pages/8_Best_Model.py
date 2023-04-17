@@ -27,16 +27,13 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 st.title("Best Model Prediction: Hist Gradient Boosting Machine")
 
 
-DATA_URL = ('https://raw.githubusercontent.com/towardsinnovationlab/Insurance_Cross_Selling_App/main/train_small_update.csv')
-df = pd.read_csv(DATA_URL)
-
-DATA_URL_xtr = ('https://raw.githubusercontent.com/towardsinnovationlab/Insurance_Cross_Selling_App/main/X_train.csv')
+DATA_URL_xtr = ('./data/X_train.csv')
 X_train = pd.read_csv(DATA_URL_xtr)
-DATA_URL_xte = ('https://raw.githubusercontent.com/towardsinnovationlab/Insurance_Cross_Selling_App/main/X_test.csv')
+DATA_URL_xte = ('./data/X_test.csv')
 X_test = pd.read_csv(DATA_URL_xte)
-DATA_URL_ytr = ('https://raw.githubusercontent.com/towardsinnovationlab/Insurance_Cross_Selling_App/main/y_train.csv')
+DATA_URL_ytr = ('./data/y_train.csv')
 y_train = pd.read_csv(DATA_URL_ytr)
-DATA_URL_yte = ('https://raw.githubusercontent.com/towardsinnovationlab/Insurance_Cross_Selling_App/main/y_test.csv')
+DATA_URL_yte = ('./data/y_test.csv')
 y_test = pd.read_csv(DATA_URL_yte)
 
 
