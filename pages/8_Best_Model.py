@@ -41,7 +41,7 @@ y_test = pd.read_csv(DATA_URL_yte)
 # loading in the model to predict on the data
 with open('./data/HGBM_classifier_.pkl', 'rb') as pickle_in:
     HGBM_tclassifier = pickle.load(pickle_in)
-
+    
 # prediction
 predictions_tr = HGBM_tclassifier.predict(X_train)
 predictions_tr_ = pd.DataFrame(predictions_tr, columns=['y_train_pred'])
@@ -49,8 +49,8 @@ predictions_te = HGBM_tclassifier.predict(X_test)
 predictions_te_ = pd.DataFrame(predictions_te, columns=['y_test_pred'])
 
 # Evaluation
-auc_train = roc_auc_score(y_train, HGBM_tclassifier.predict_proba(X_train)[:, 1])  
-auc_test = roc_auc_score(y_test, HGBM_tclassifier.predict_proba(X_test)[:, 1]) 
+auc_train = roc_auc_score(y_train, y_train_pred)  
+auc_test = roc_auc_score(y_test, y_test_pred) 
 
 # metrics table
 d1 = {'evaluation': ['AUC'],
