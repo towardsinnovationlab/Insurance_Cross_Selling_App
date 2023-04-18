@@ -43,14 +43,14 @@ with open('./data/HGBM_classifier_.pkl', 'rb') as pickle_in:
     HGBM_tclassifier = pickle.load(pickle_in)
     
 # prediction
-predictions_tr = HGBM_tclassifier.predict(X_train)
+predictions_tr = HGBM_tclassifier.predict_proba(X_train)[:,1]
 predictions_tr_ = pd.DataFrame(predictions_tr, columns=['y_train_pred'])
-predictions_te = HGBM_tclassifier.predict(X_test)
+predictions_te = HGBM_tclassifier.predict_proba(X_test)[:,1]
 predictions_te_ = pd.DataFrame(predictions_te, columns=['y_test_pred'])
 
 # Evaluation
-auc_train = roc_auc_score(y_train, y_train_pred)  
-auc_test = roc_auc_score(y_test, y_test_pred) 
+auc_train = roc_auc_score(y_train, predictions_tr)  
+auc_test = roc_auc_score(y_test, predictions_te) 
 
 # metrics table
 d1 = {'evaluation': ['AUC'],
@@ -78,6 +78,6 @@ def plot_roc_auc(y_test, y_score, classes):
     st.pyplot(fig)
 
 st.write('ROC on train')
-plot_roc_auc(y_train, HGBM_tclassifier.predict_proba(X_train)[:, 1], 2)
+plot_roc_auc(y_train, predictions_tr, 2)
 st.write('ROC on test')
-plot_roc_auc(y_test, HGBM_tclassifier.predict_proba(X_test)[:, 1], 2)
+plot_roc_auc(y_test, predictions_te, 2)
