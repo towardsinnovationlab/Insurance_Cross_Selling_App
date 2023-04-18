@@ -7,5 +7,4 @@ seaborn
 scipy
 scikit-learn==1.0.2
 requests
-joblib
 pickle5
