@@ -17,7 +17,6 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.naive_bayes import GaussianNB
 from sklearn.ensemble import HistGradientBoostingClassifier
 from sklearn.neighbors import KNeighborsClassifier
-import joblib
 import pickle5 as pickle
 
 import warnings
@@ -26,8 +25,6 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 
 st.title("Best Model Prediction: Hist Gradient Boosting Machine")
 
-DATA_URL = ('./data/train.csv')
-df = pd.read_csv(DATA_URL)
 
 DATA_URL_xtr = ('./data/X_train.csv')
 X_train = pd.read_csv(DATA_URL_xtr)
