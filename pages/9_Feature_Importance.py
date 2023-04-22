@@ -36,8 +36,11 @@ y_train = pd.read_csv(DATA_URL_ytr)
 DATA_URL_yte = ('./data/y_test.csv')
 y_test = pd.read_csv(DATA_URL_yte)
 
-HGBM_explainer = shap.TreeExplainer(HistGradientBoostingClassifier(random_state=0,learning_rate=0.02, max_bins=80, max_depth= 10).fit(X_train, y_train))
-shap_values = HGBM_explainer.shap_values(X_test)
+#HGBM_explainer = shap.TreeExplainer(HistGradientBoostingClassifier(random_state=0,learning_rate=0.02, max_bins=80, max_depth= 10).fit(X_train, y_train))
+#shap_values = HGBM_explainer.shap_values(X_test)
+
+# load shap_values:
+shap_values = np.load('./data/shap_values.npy')
 
 # Global SHAP on test
 st.subheader("HGBM SHAP BARPLOT on test Values")
