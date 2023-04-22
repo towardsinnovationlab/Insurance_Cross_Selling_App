@@ -27,6 +27,21 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 
 st.title("Features Importance")
 
+DATA_URL_xtr = ('./data/X_train.csv')
+X_train = pd.read_csv(DATA_URL_xtr)
+DATA_URL_xte = ('./data/X_test.csv')
+X_test = pd.read_csv(DATA_URL_xte)
+DATA_URL_ytr = ('./data/y_train.csv')
+y_train = pd.read_csv(DATA_URL_ytr)
+DATA_URL_yte = ('./data/y_test.csv')
+y_test = pd.read_csv(DATA_URL_yte)
+
+# loading in the model to predict on the data
+with open('HGBM_explainer.pkl', 'rb') as pickle_in:
+    HGBM_explainer = pickle.load(pickle_in)
+
+shap_values = HGBM_explainer.shap_values(X_test)
+
 # Global SHAP on test
 st.subheader("HGBM SHAP BARPLOT on test Values")
 fig = plt.figure()
