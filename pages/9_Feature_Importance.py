@@ -37,7 +37,7 @@ DATA_URL_yte = ('./data/y_test.csv')
 y_test = pd.read_csv(DATA_URL_yte)
 
 # loading in the model to predict on the data
-with open('HGBM_explainer.pkl', 'rb') as pickle_in:
+with open('./data/HGBM_explainer.pkl', 'rb') as pickle_in:
     HGBM_explainer = pickle.load(pickle_in)
 
 shap_values = HGBM_explainer.shap_values(X_test)
