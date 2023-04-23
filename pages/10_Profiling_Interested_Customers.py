@@ -21,23 +21,16 @@ from sklearn.manifold import TSNE
 from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
 from sklearn.preprocessing import StandardScaler
+import pickle5 as pickle
 
 import warnings
 warnings.simplefilter(action='ignore', category=UserWarning)
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
-DATA_URL = ('https://raw.githubusercontent.com/claudio1975/Insurance_Cross_Sell_Prediction_Web_App/main/train_small_update.csv')
-df = pd.read_csv(DATA_URL)
-
-# Formatting features
-df['Driving_License'] = df['Driving_License'].astype('object')
-df['Region_Code'] = df['Region_Code'].astype('object')
-df['Previously_Insured'] = df['Previously_Insured'].astype('object')
-df['Policy_Sales_Channel'] = df['Policy_Sales_Channel'].astype('object')
-df['Response'] = df['Response'].astype('object')
-
 
 st.title("Profiling Interested Customers")
+
+df = pd.read_csv('./data/train.csv')
 
 numerical_cols = [var for var in df.columns if df[var].dtype in ['float64','int64']]
 
@@ -52,7 +45,8 @@ num_1 = df_1[numerical_cols]
 sc = StandardScaler()
 num_sc = sc.fit_transform(num_1)
 
-kmeans = KMeans(n_clusters=4, random_state=0).fit(num_sc)
+
+
 labels = kmeans.predict(num_sc)
 
 cluster_num = num_1.copy()
