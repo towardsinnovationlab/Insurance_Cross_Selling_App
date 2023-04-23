@@ -47,5 +47,5 @@ df_1 = df_1[df_1['Response']==1]
 
 # Select numerical columns
 num_1 = df_1[numerical_cols]
-num_1.head()
+num_1
 
