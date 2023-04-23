@@ -53,12 +53,12 @@ sc = StandardScaler()
 num_sc = sc.fit_transform(num_1)
 
 # loading in the model to predict on the data
-#with open('./data/kmeans.pkl', 'rb') as pickle_in:
-#    kmeans = pickle.load(pickle_in)
+with open('./data/kmeans.pkl', 'rb') as pickle_in:
+    kmeans = pickle.load(pickle_in)
 
-kmeans = KMeans(n_clusters=4, random_state=0).fit(num_sc)
-labels = kmeans.predict(num_sc)
-labels
+#kmeans = KMeans(n_clusters=4, random_state=0).fit(num_sc)
+#labels = kmeans.predict(num_sc)
+#labels
 #cluster_num = num_1.copy()
 #cluster_num['kmeans_cluster'] = labels
 len(np.unique(kmeans.labels_))
