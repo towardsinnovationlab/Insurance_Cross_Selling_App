@@ -21,7 +21,7 @@ from sklearn.manifold import TSNE
 from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
 from sklearn.preprocessing import StandardScaler
-import pickle5 as pickle
+
 
 import warnings
 warnings.simplefilter(action='ignore', category=UserWarning)
@@ -56,8 +56,11 @@ num_sc = sc.fit_transform(num_1)
 #with open('./data/kmeans.pkl', 'rb') as pickle_in:
 #    kmeans = pickle.load(pickle_in)
 
-kmeans = KMeans(n_clusters=4, random_state=0).fit(num_sc)
-labels = kmeans.predict(num_sc)
+# load kmeans labels:
+labels = np.load('./data/labels.npy')
+
+#kmeans = KMeans(n_clusters=4, random_state=0).fit(num_sc)
+#labels = kmeans.predict(num_sc)
 
 cluster_num = num_1.copy()
 cluster_num['kmeans_cluster'] = labels
