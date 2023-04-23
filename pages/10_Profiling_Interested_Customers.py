@@ -58,7 +58,7 @@ num_sc = sc.fit_transform(num_1)
 
 kmeans = KMeans(n_clusters=4, random_state=0).fit(num_sc)
 labels = kmeans.predict(num_sc)
-labels
+
 cluster_num = num_1.copy()
 cluster_num['kmeans_cluster'] = labels
 len(np.unique(kmeans.labels_))
@@ -99,13 +99,13 @@ fig = plt.figure()
 plt.rcParams['figure.figsize']=(20,7)
 plt.subplot(1,3,1)
 sns.kdeplot(x=df_cluster_AP['Annual_Premium'],hue=df_cluster_AP['Gender'],palette="crest", multiple='stack')
-plt.title('Annual_Premium vs Gender on Top Cluster')
+st.write('Annual_Premium vs Gender on Top Cluster')
 plt.subplot(1,3,2)
 sns.kdeplot(x=df_cluster_AP['Annual_Premium'],hue=df_cluster_AP['Vehicle_Damage'],palette="crest", multiple='stack')
-plt.title('Annual_Premium vs Vehicle_Damage on Top Cluster')
+st.write('Annual_Premium vs Vehicle_Damage on Top Cluster')
 plt.subplot(1,3,3)
 sns.kdeplot(x=df_cluster_AP['Annual_Premium'],hue=df_cluster_AP['Vehicle_Age'],palette="crest", multiple='stack')
-plt.title('Annual_Premium vs Vehicle_Age on Top Cluster')
+st.write('Annual_Premium vs Vehicle_Age on Top Cluster')
 st.pyplot(fig)
 
 st.subheader('Age distribution vs Gender, Vehicle_Damage, Vehicle_Age for the Top Cluster')
