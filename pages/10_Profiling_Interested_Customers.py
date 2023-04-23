@@ -93,22 +93,22 @@ df_AGE
 df_cluster_AP = df_cluster[df_cluster['kmeans_cluster']==2].reset_index(drop=True)
 df_cluster_AGE = df_cluster[df_cluster['kmeans_cluster']==1].reset_index(drop=True)
 
-st.subheader('Annual Premium distribution vs Gender, Vehicle_Damage, Vehicle_Age for the Top Cluster')
+st.subheader('Annual Premium distribution for the Top Cluster')
 # Plot Annual Premium vs Gender, Vehicle_Damage, Vehicle_Age
 fig = plt.figure()
 plt.rcParams['figure.figsize']=(20,7)
 plt.subplot(1,3,1)
 sns.kdeplot(x=df_cluster_AP['Annual_Premium'],hue=df_cluster_AP['Gender'],palette="crest", multiple='stack')
-st.write('Annual_Premium vs Gender on Top Cluster')
+plt.title('Annual_Premium vs Gender on Top Cluster')
 plt.subplot(1,3,2)
 sns.kdeplot(x=df_cluster_AP['Annual_Premium'],hue=df_cluster_AP['Vehicle_Damage'],palette="crest", multiple='stack')
-st.write('Annual_Premium vs Vehicle_Damage on Top Cluster')
+plt.title('Annual_Premium vs Vehicle_Damage on Top Cluster')
 plt.subplot(1,3,3)
 sns.kdeplot(x=df_cluster_AP['Annual_Premium'],hue=df_cluster_AP['Vehicle_Age'],palette="crest", multiple='stack')
-st.write('Annual_Premium vs Vehicle_Age on Top Cluster')
+plt.title('Annual_Premium vs Vehicle_Age on Top Cluster')
 st.pyplot(fig)
 
-st.subheader('Age distribution vs Gender, Vehicle_Damage, Vehicle_Age for the Top Cluster')
+st.subheader('Age distribution for the Top Cluster')
 # Plot Age vs Gender, Vehicle_Damage, Vehicle_Age
 fig=plt.figure()
 plt.rcParams['figure.figsize']=(20,7)
