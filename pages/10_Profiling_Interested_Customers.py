@@ -32,6 +32,13 @@ st.title("Profiling Interested Customers")
 
 df = pd.read_csv('./data/train.csv')
 
+# Formatting features
+df['Driving_License'] = df['Driving_License'].astype('object')
+df['Region_Code'] = df['Region_Code'].astype('object')
+df['Previously_Insured'] = df['Previously_Insured'].astype('object')
+df['Policy_Sales_Channel'] = df['Policy_Sales_Channel'].astype('object')
+df['Response'] = df['Response'].astype('object')
+
 numerical_cols = [var for var in df.columns if df[var].dtype in ['float64','int64']]
 
 df_1 = df.copy()
