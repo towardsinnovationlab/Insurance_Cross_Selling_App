@@ -26,11 +26,14 @@ X_full.drop(['Response'], axis=1, inplace=True)
 
 st.title("Target Variable Analysis")
 
+
 st.markdown("""
 The outcome is a binary variable with 1 value the policyholder is interested in purchasing the vehicle insurance, 
 instead with 0 value the policyholder is not interested.
-Target variable shows imbalanced classes.
+
+Target variable shows imbalanced classes, where only 12% of policyholders would buy the vehicle coverage.
 """)
+
 
 def piechart(data, col1, col2):
     # Plot the target variable 
