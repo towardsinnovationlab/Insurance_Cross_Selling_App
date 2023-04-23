@@ -51,9 +51,9 @@ with open('./data/kmeans.pkl', 'rb') as pickle_in:
 
 #kmeans = KMeans(n_clusters=4, random_state=0).fit(num_sc)
 labels = kmeans.predict(num_sc)
-
-cluster_num = num_1.copy()
-cluster_num['kmeans_cluster'] = labels
+labels
+#cluster_num = num_1.copy()
+#cluster_num['kmeans_cluster'] = labels
 len(np.unique(kmeans.labels_))
 
 #cluster = cluster_num['kmeans_cluster'].value_counts()
