@@ -26,6 +26,12 @@ X_full.drop(['Response'], axis=1, inplace=True)
 
 st.title("Target Variable Analysis")
 
+st.markdown("""
+The outcome is a binary variable with 1 value the policyholder is interested in purchasing the vehicle insurance, 
+instead with 0 value the policyholder is not interested.
+Target variable shows imbalanced classes.
+""")
+
 def piechart(data, col1, col2):
     # Plot the target variable 
     plt.rcParams['figure.figsize']=(15,5)
@@ -41,4 +47,4 @@ col1 = 'Response'
 col2 = 'id'
 piechart(df, col1, col2)
 
-st.write("Target variable shows imbalanced classes")
+
