@@ -22,6 +22,10 @@ df['Response'] = df['Response'].astype('object')
 
 st.title("Summary Statistics")
 
+st.markdown("""
+The data set is composed by 12 variables and 381.109 rows. 
+""")
+
 
 st.subheader('Categorical Variables')
 # Summarize attribute distributions for data type of variables
