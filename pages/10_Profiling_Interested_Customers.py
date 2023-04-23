@@ -49,6 +49,10 @@ df_1 = df_1[df_1['Response']==1]
 # Select numerical columns
 num_1 = df_1[numerical_cols]
 
+# Standardization of data
+sc = StandardScaler()
+num_sc = sc.fit_transform(num_1)
+
 # loading in the model to predict on the data
 with open('./data/kmeans.pkl', 'rb') as pickle_in:
     kmeans = pickle.load(pickle_in)
