@@ -37,7 +37,6 @@ y_test = pd.read_csv(DATA_URL_yte)
 
 
 # Model
-# Calibration model
 # loading in the model to predict on the data
 with open('./data/HGBM_tclassifier.pkl', 'rb') as pickle_in:
     HGBM_tclassifier = pickle.load(pickle_in)
