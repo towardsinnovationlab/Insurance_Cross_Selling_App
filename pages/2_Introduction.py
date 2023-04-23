@@ -4,8 +4,16 @@ import streamlit as st
 
 st.title("Introduction")
 
-st.markdown("""The goal is to predict whether health insurance owners' from past year would also be interested in purchasing vehicle 
+st.markdown("""
+The goal is to predict whether health insurance owners' from past year would also be interested in purchasing vehicle 
 insurance coverage provided by the Company.
+In the first step, the cross-selling prediction activity, have been used calibrated classifiers with Logistic Regression 
+employed as a benchmark model and it has been compared with other machine learning models such as Naïve Bayes and Hist 
+Gradient Boosting Machine. The ensemble model shows the best performance. 
+In the second step, has been profiled customers interested in the purchasing coverage using K-means clustering method on numerical features 
+and then applying the split to the all data set. In this way has been possible to understand relationships between 
+numerical features as Annaul Premium and Age with categorical features as Vehicle Age, Gender and Vehicle Damage. 
+
 ### Data Description
 
 #### Variables
