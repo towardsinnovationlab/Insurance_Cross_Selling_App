@@ -28,10 +28,10 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 st.title("Spot Check Models")
 
 st.markdown("""
-Logistic Regression (LR) is used as a benchmark model, because is usually used as reference in Insurance, and also because 
-in terms of calibration for the evaluation is a calibrated model. 
+Logistic Regression (LR) is used as a benchmark model, because it is usually used as reference in Insurance, and also because 
+in terms of calibration for the evaluation it is a calibrated model. 
 
-It has been compared with Naive Bayes model (GNB), and Hist Gradient Boosting Machine (HGBM).
+For this job Logistic Regression (LR) has been compared with Naive Bayes model (GNB), and Hist Gradient Boosting Machine (HGBM).
 
 """)
 
