@@ -61,20 +61,8 @@ predictions = pd.concat([predictions_tr_, predictions_te_], axis=0).reset_index(
 df = pd.concat([df, predictions], axis=1)
 
 fig=plt.figure()
-
-#plt.bar(x=df['Prediction'], y=df['Response'], data=df)
-fig, ax = plt.subplots()
-
-# use groupby to count the number of occurrences of each combination of Prediction and Response
-counts = df.groupby(['Prediction', 'Response']).size()
-
-# create a bar plot
-counts.unstack().plot(kind='bar', ax=ax)
-
-# set some plot options
-ax.set_xticklabels(ax.get_xticklabels(), rotation=0)
-ax.set_xlabel('Prediction')
-ax.set_ylabel('Count')
+sns.countplot(x=df['Response'], data=df)
+sns.countplot(x=df['Prediction'], data=df)
 st.pyplot(fig)
 
 
