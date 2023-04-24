@@ -49,23 +49,9 @@ with open('./data/HGBM_tclassifier.pkl', 'rb') as pickle_in:
     
 # prediction
 predictions_tr = HGBM_tclassifier.predict_proba(X_train)[:,1]
-predictions_tr_ = HGBM_tclassifier.predict(X_train)
-predictions_tr_ = pd.DataFrame(predictions_tr_, columns=['Prediction'])
+predictions_tr_ = pd.DataFrame(predictions_tr, columns=['Prediction'])
 predictions_te = HGBM_tclassifier.predict_proba(X_test)[:,1]
-predictions_te_ = HGBM_tclassifier.predict(X_test)
-predictions_te_ = pd.DataFrame(predictions_te_, columns=['Prediction'])
-
-predictions_tr_ = pd.DataFrame(predictions_tr_, columns=['Prediction']).reset_index(drop=True)
-predictions_te_ = pd.DataFrame(predictions_te_, columns=['Prediction']).reset_index(drop=True)
-predictions = pd.concat([predictions_tr_, predictions_te_], axis=0).reset_index(drop=True)
-df = pd.concat([df, predictions], axis=1)
-df['Prediction'].describe().T
-
-fig=plt.figure()
-sns.countplot(x=df['Response'], data=df)
-#sns.countplot(x=df['Prediction'], data=df)
-st.pyplot(fig)
-
+predictions_te_ = pd.DataFrame(predictions_te, columns=['Prediction'])
 
 # Evaluation
 auc_train = roc_auc_score(y_train, predictions_tr)  
