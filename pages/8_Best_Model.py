@@ -84,7 +84,7 @@ plt.title('Receiver Operating Characteristic (ROC) Curve')
 plt.legend(loc="lower right")
 
 # Adjust the threshold and compute the true positive rate (TPR) and false positive rate (FPR)
-threshold = 0.2
+threshold = 0.21
 y_pred = np.where(predictions_te >= threshold, 1, 0)
 fpr_new, tpr_new, _ = roc_curve(y_test, y_pred)
 
