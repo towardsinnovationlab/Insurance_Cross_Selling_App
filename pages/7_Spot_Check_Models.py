@@ -18,6 +18,7 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.ensemble import HistGradientBoostingClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.calibration import CalibratedClassifierCV
+from sklearn.calibration import calibration_curve
 import pickle5 as pickle
 
 
