@@ -50,6 +50,11 @@ predictions_tr_ = pd.DataFrame(predictions_tr, columns=['y_train_pred'])
 predictions_te = HGBM_tclassifier.predict_proba(X_test)[:,1]
 predictions_te_ = pd.DataFrame(predictions_te, columns=['y_test_pred'])
 
+plt.rcParams['figure.figsize']=(10,5)
+sns.countplot(prediction_te, y_test)
+st.pyplot(fig)
+
+
 # Evaluation
 auc_train = roc_auc_score(y_train, predictions_tr)  
 auc_test = roc_auc_score(y_test, predictions_te) 
