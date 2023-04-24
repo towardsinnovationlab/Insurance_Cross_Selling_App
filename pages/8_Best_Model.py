@@ -49,12 +49,13 @@ with open('./data/HGBM_tclassifier.pkl', 'rb') as pickle_in:
     
 # prediction
 predictions_tr = HGBM_tclassifier.predict_proba(X_train)[:,1]
-predictions_tr_ = pd.DataFrame(predictions_tr, columns=['y_train_pred'])
+predictions_tr_ = pd.DataFrame(predictions_tr, columns=['prediction'])
 predictions_te = HGBM_tclassifier.predict_proba(X_test)[:,1]
-predictions_te_ = pd.DataFrame(predictions_te, columns=['y_test_pred'])
+predictions_te_ = pd.DataFrame(predictions_te, columns=['prediction'])
 
 df
-predictions_tr_
+predictions= predictions_tr_.append(predictions_te_)
+predictions
 #fig=plt.figure()
 #sns.countplot(response,df)
 #st.pyplot(fig)
