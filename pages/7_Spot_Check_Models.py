@@ -114,7 +114,7 @@ predicted_probabilities = probabilities[:, 1]
 test_outcomes = y_test
 
 # Generate the calibration curve data
-calibration_curve_data = calibration_curve(test_outcomes, predicted_probabilities, n_bins=5)
+calibration_curve_data = calibration_curve(test_outcomes, predicted_probabilities, n_bins=15)
 
 # Plot the calibration curve
 fig = plt.figure()
