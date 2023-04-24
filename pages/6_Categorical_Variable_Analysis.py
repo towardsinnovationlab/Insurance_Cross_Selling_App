@@ -29,7 +29,7 @@ st.title("Categorical Variable Analysis")
 st.markdown("""
 With data cleaning have been dropped two variables: 'Policy_Sales_Channel' and 'Region_Code' because they are not useful in the modelling activity,
 given that data are allocated in many classes. In the first one variable, more or less 70% of data are covered by 3 channels, in the second variable 
-one more or less 40% of data are allocated in 2 regions and the rest in other many other not relevant regions codes.
+one more or less 40% of data are allocated in 2 regions and the rest in other many other not relevant region codes.
 
 Looking at the other variables, gender variable shows a prevalence of men policyholders: 54% male vs 46% female.
 
