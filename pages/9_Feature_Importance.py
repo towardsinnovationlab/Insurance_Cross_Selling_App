@@ -36,6 +36,10 @@ y_train = pd.read_csv(DATA_URL_ytr)
 DATA_URL_yte = ('./data/y_test.csv')
 y_test = pd.read_csv(DATA_URL_yte)
 
+st.markdown("""
+The most relevant feature with impact on the target variable is "Previously_Insured".
+""")
+
 # load shap_values:
 shap_values = np.load('./data/shap_values.npy')
 
@@ -45,6 +49,4 @@ fig = plt.figure()
 shap.summary_plot(shap_values, features=X_test, feature_names=X_test.columns,plot_type='bar')
 st.pyplot(fig)
 
-st.markdown("""
-The most relevant feature with impact on the target variable is "Previously_Insured".
-""")
+
