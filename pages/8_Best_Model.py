@@ -62,7 +62,7 @@ df = pd.concat([df, predictions], axis=1)
 df
 
 fig=plt.figure()
-sns.countplot(x='Response', hue='Prediction',df)
+sns.countplot(x='Response', hue='Prediction', data=df)
 st.pyplot(fig)
 
 
