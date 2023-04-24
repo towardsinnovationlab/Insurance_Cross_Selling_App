@@ -54,7 +54,7 @@ predictions_te = HGBM_tclassifier.predict_proba(X_test)[:,1]
 predictions_te_ = pd.DataFrame(predictions_te, columns=['prediction'])
 
 predictions= predictions_tr_.append(predictions_te_)
-df_=pd.concat([df, predictions], axis=1)
+df_ = pd.concat(['df', 'predictions'], axis=1)
 df_
 #fig=plt.figure()
 #sns.countplot(response,df)
