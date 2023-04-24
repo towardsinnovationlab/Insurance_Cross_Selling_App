@@ -10,6 +10,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import roc_auc_score
 from sklearn.metrics import roc_curve, auc
+from sklearn.metrics import precision_score, recall_score, f1_score
 from sklearn.model_selection import StratifiedKFold
 from sklearn.model_selection import GridSearchCV
 from sklearn.model_selection import RandomizedSearchCV
@@ -66,6 +67,42 @@ d1 = {'evaluation': ['AUC'],
 df1 = pd.DataFrame(data=d1, columns=['model','evaluation','train','test'])
 print('HGBM evaluation on cross-sell prediction')
 df1
+
+# compute the tpr and fpr from the prediction
+fpr, tpr, thresholds = roc_curve(y_test, predictions_t)
+
+# Plot the ROC curve
+plt.rcParams['figure.figsize']=(10,5)
+fig = plt.figure()
+plt.plot(fpr, tpr, label='ROC Curve (AUC = %0.2f)' % auc(fpr, tpr))
+plt.plot([0, 1], [0, 1], 'k--')
+plt.xlim([0.0, 1.0])
+plt.ylim([0.0, 1.05])
+plt.xlabel('False Positive Rate')
+plt.ylabel('True Positive Rate')
+plt.title('Receiver Operating Characteristic (ROC) Curve')
+plt.legend(loc="lower right")
+
+# Adjust the threshold and compute the true positive rate (TPR) and false positive rate (FPR)
+threshold = 0.2
+y_pred = np.where(predictions_t >= threshold, 1, 0)
+fpr_new, tpr_new, _ = roc_curve(y_test, y_pred)
+
+# Plot the new point on the ROC curve
+plt.scatter(fpr_new, tpr_new, c='r', label='New Threshold = %0.2f' % threshold)
+plt.legend(loc="lower right")
+print('ROC on test')
+st.pyplot(fig)
+
+# create a Pandas DataFrame
+fig=plt.figure()
+df = pd.DataFrame({'Actual': np.array(y_test), 'Predicted': y_pred})
+sns.catplot(x='value', hue='variable', kind='count', data=pd.melt(df), height=5, aspect=1.5)
+plt.title('True vs Predicted Labels')
+st.pyplot(fig)
+
+
+
 
 def plot_roc_auc(y_test, y_score, classes):
     fpr, tpr, _ = roc_curve(y_test, y_score)
