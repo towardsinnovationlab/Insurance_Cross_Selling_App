@@ -30,6 +30,10 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 
 st.title("Profiling Interested Customers")
 
+st.markdown("""
+Interested Customers in buying a vehicle insurance coverage can be profiled into 4 clusters.
+""")
+
 df = pd.read_csv('./data/train.csv')
 
 # Formatting features
