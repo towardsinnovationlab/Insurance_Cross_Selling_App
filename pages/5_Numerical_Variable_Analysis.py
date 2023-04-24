@@ -12,6 +12,14 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 
 df = pd.read_csv('./data/train.csv')
 
+st.markdown("""
+After data cleaning activity, there are three numerical variables in the data set: age, annual premium and vintage aka number of days policyholder 
+is in the Company portfolio.
+Age doesn't follow a Gaussian distribution and portfolio is representd by young people.
+Vintage follows a Uniform distribution with a more or less average of 150 days.
+Annual premium is highly skewed with a more or less average of Rs. 30500 premium paid in the year.
+""")
+
 # Formatting features
 df['Driving_License'] = df['Driving_License'].astype('object')
 df['Region_Code'] = df['Region_Code'].astype('object')
@@ -59,10 +67,5 @@ plot_num(num, var='Age')
 plot_num(num, var='Annual_Premium')
 plot_num(num, var='Vintage')
 
-st.markdown("""
-Age variable doesn't follow a Gaussian Distribution, 
 
-Vintage variable belongs to the Uniform Distribution and 
-
-Annual Premium is highly skewed""")
 
