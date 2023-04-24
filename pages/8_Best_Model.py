@@ -55,8 +55,8 @@ predictions_te = HGBM_tclassifier.predict_proba(X_test)[:,1]
 predictions_te_ = HGBM_tclassifier.predict(X_test)
 predictions_te_ = pd.DataFrame(predictions_te_, columns=['Prediction'])
 
-predictions_tr_ = pd.DataFrame(predictions_tr, columns=['Prediction']).reset_index(drop=True)
-predictions_te_ = pd.DataFrame(predictions_te, columns=['Prediction']).reset_index(drop=True)
+predictions_tr_ = pd.DataFrame(predictions_tr_, columns=['Prediction']).reset_index(drop=True)
+predictions_te_ = pd.DataFrame(predictions_te_, columns=['Prediction']).reset_index(drop=True)
 predictions = pd.concat([predictions_tr_, predictions_te_], axis=0).reset_index(drop=True)
 df = pd.concat([df, predictions], axis=1)
 df
