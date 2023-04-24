@@ -138,7 +138,7 @@ test_outcomes = y_test
 calibration_curve_data = calibration_curve(test_outcomes, predicted_probabilities, n_bins=10)
 
 # Plot the calibration curve
-plt.rcParams['figure.figsize']=(5,5)
+plt.rcParams['figure.figsize']=(5,2.5)
 fig = plt.figure()
 plt.plot(calibration_curve_data[1], calibration_curve_data[0], marker='.')
 plt.plot([0, 1], [0, 1], linestyle='--')
@@ -159,7 +159,7 @@ test_outcomes = y_test
 calibration_curve_data = calibration_curve(test_outcomes, predicted_probabilities, n_bins=10)
 
 # Plot the calibration curve
-plt.rcParams['figure.figsize']=(5,5)
+plt.rcParams['figure.figsize']=(5,2.5)
 fig = plt.figure()
 plt.plot(calibration_curve_data[1], calibration_curve_data[0], marker='.')
 plt.plot([0, 1], [0, 1], linestyle='--')
