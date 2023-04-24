@@ -95,8 +95,11 @@ print('ROC on test')
 st.pyplot(fig)
 
 # create a Pandas DataFrame
+y_test_= np.array(y_test)
+y_test_ = y_test_.flatten()
+y_pred = y_pred.flatten()
 fig=plt.figure()
-df = pd.DataFrame({'Actual': np.array(y_test), 'Predicted': y_pred})
+df = pd.DataFrame({'Actual': y_test_, 'Predicted': y_pred})
 sns.catplot(x='value', hue='variable', kind='count', data=pd.melt(df), height=5, aspect=1.5)
 plt.title('True vs Predicted Labels')
 st.pyplot(fig)
