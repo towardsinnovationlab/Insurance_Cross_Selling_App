@@ -26,6 +26,19 @@ X_full.drop(['Response'], axis=1, inplace=True)
 
 st.title("Categorical Variable Analysis")
 
+st.markdown("""
+With data cleaning have been dropped two variables: 'Policy_Sales_Channel' and 'Region_Code' because they are not useful in the modelling activity,
+given that data are allocated in many classes. In the first one variable, more or less 70% of data are covered by 3 channels, in the second variable 
+one more or less 40% of data are allocated in 2 regions and the rest in other many other not relevant regions codes.
+
+Looking at the other variables, gender variable shows a prevalence of men policyholders: 54% male vs 46% female.
+
+Almost all of policyholders have a driving license, and they own young vehicle: 53% of vehicles are in a range of 1-2 years.
+
+Most of policyholders did not previously insured with the Company: 54% did not insured with Company vs 46% previusly insured.
+
+In the last features vehicles with damage and without damage are equally distribuited in the portfolio.
+""")
 
 # Select categorical columns with relatively low cardinality (convenient but arbitrary)
 categorical_cols = [var for var in X_full.columns if
@@ -51,15 +64,4 @@ piechart(df, col1='Vehicle_Age', col2='id')
 piechart(df, col1='Vehicle_Damage', col2='id')
 
 
-st.markdown("""
-Gender variable shows prevalence of men policyholders, 
 
-almost all of policyholders have driving license,
-
-they own young vehicle,
-
-most of them didn't previously insured with the Company
-
-and vehicles with damage and without damage are equally distribuited.
-
-""")
