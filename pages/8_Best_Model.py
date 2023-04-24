@@ -29,6 +29,9 @@ st.markdown("""
 Hist Gradient Boosting Machine shows the best performance, then it's been fine tuned and here the results: 
 """)
 
+
+DATA_URL = ('./data/train.csv')
+df = pd.read_csv(DATA_URL)
 DATA_URL_xtr = ('./data/X_train.csv')
 X_train = pd.read_csv(DATA_URL_xtr)
 DATA_URL_xte = ('./data/X_test.csv')
@@ -51,7 +54,7 @@ predictions_te = HGBM_tclassifier.predict_proba(X_test)[:,1]
 predictions_te_ = pd.DataFrame(predictions_te, columns=['y_test_pred'])
 
 fig=plt.figure()
-sns.countplot(y_train, y_train)
+sns.countplot(df, response)
 st.pyplot(fig)
 
 
