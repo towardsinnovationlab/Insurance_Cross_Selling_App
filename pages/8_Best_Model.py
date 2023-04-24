@@ -51,7 +51,7 @@ predictions_te = HGBM_tclassifier.predict_proba(X_test)[:,1]
 predictions_te_ = pd.DataFrame(predictions_te, columns=['y_test_pred'])
 
 fig=plt.figure()
-sns.countplot(y_train)
+sns.countplot(y_train, y_train)
 st.pyplot(fig)
 
 
