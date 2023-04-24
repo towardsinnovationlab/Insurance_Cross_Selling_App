@@ -59,10 +59,10 @@ predictions_tr_ = pd.DataFrame(predictions_tr_, columns=['Prediction']).reset_in
 predictions_te_ = pd.DataFrame(predictions_te_, columns=['Prediction']).reset_index(drop=True)
 predictions = pd.concat([predictions_tr_, predictions_te_], axis=0).reset_index(drop=True)
 df = pd.concat([df, predictions], axis=1)
-
+df.describe(type='all')
 fig=plt.figure()
 sns.countplot(x=df['Response'], data=df)
-sns.countplot(x=df['Prediction'], data=df)
+#sns.countplot(x=df['Prediction'], data=df)
 st.pyplot(fig)
 
 
