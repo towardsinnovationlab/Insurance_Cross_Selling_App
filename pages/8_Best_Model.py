@@ -25,6 +25,9 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 
 st.title("Best Model Prediction: Hist Gradient Boosting Machine")
 
+st.markdown("""
+Hist Gradient Boosting Machine shows the best performance, then it's been fine tuned and here the results: 
+""")
 
 DATA_URL_xtr = ('./data/X_train.csv')
 X_train = pd.read_csv(DATA_URL_xtr)
