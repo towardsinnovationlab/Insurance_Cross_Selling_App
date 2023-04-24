@@ -27,6 +27,13 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 
 st.title("Spot Check Models")
 
+st.markdown("""
+Logistic Regression (LR) is used as a benchmark model, because is usually used as reference in Insurance, and also because 
+in terms of calibration for the evaluation is a calibrated model. 
+
+It has been compared with Naive Bayes model (GNB), and Hist Gradient Boosting Machine (HGBM).
+
+""")
 
 DATA_URL_xtr = ('./data/X_train.csv')
 X_train = pd.read_csv(DATA_URL_xtr)
@@ -95,9 +102,4 @@ axes.set_ylim([0,1.1])
 st.pyplot(fig)
 
 
-st.markdown("""
-Logistic Regression (LR) is the benchmark model used in Insurance, and it has been compared with
 
-Naive Bayes model (GNB), and Hist Gradient Boosting Machine (HGBM).
-
-""")
