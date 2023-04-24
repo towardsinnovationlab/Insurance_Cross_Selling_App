@@ -89,9 +89,9 @@ y_pred = np.where(predictions_te >= threshold, 1, 0)
 fpr_new, tpr_new, _ = roc_curve(y_test, y_pred)
 
 # Plot the new point on the ROC curve
+st.write('ROC on test')
 plt.scatter(fpr_new, tpr_new, c='r', label='New Threshold = %0.2f' % threshold)
 plt.legend(loc="lower right")
-print('ROC on test')
 st.pyplot(fig)
 
 # create a Pandas DataFrame
