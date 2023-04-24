@@ -60,9 +60,10 @@ predictions_te_ = pd.DataFrame(predictions_te_, columns=['Prediction']).reset_in
 predictions = pd.concat([predictions_tr_, predictions_te_], axis=0).reset_index(drop=True)
 df = pd.concat([df, predictions], axis=1)
 df
-#fig=plt.figure()
-#sns.countplot(response,df)
-#st.pyplot(fig)
+
+fig=plt.figure()
+sns.countplot(x='Response', hue='Prediction',df)
+st.pyplot(fig)
 
 
 # Evaluation
