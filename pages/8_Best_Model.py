@@ -23,7 +23,7 @@ import warnings
 warnings.simplefilter(action='ignore', category=UserWarning)
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
-st.title("Best Model Prediction: tuned Hist Gradient Boosting Machine")
+st.title("Best Model Prediction: Hist Gradient Boosting Machine")
 
 
 DATA_URL_xtr = ('./data/X_train.csv')
