@@ -93,6 +93,10 @@ df_AGE
 df_cluster_AP = df_cluster[df_cluster['kmeans_cluster']==2].reset_index(drop=True)
 df_cluster_AGE = df_cluster[df_cluster['kmeans_cluster']==1].reset_index(drop=True)
 
+st.markdown("""
+In the following are showed the Annual Premium distribution and Age distribution for the top cluster.
+""")
+
 st.subheader('Annual Premium distribution')
 # Plot Annual Premium vs Gender, Vehicle_Damage, Vehicle_Age
 fig = plt.figure()
