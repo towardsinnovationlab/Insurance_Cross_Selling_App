@@ -40,6 +40,7 @@ Most of policyholders did not previously insured with the Company: 54% did not i
 In the last features vehicles with damage and without damage are equally distribuited in the portfolio.
 """)
 
+
 # Select categorical columns with relatively low cardinality (convenient but arbitrary)
 categorical_cols = [var for var in X_full.columns if
                     X_full[var].nunique() <= 15 and 
