@@ -35,6 +35,7 @@ For this job Logistic Regression (LR) has been compared with Naive Bayes model (
 
 """)
 
+
 DATA_URL_xtr = ('./data/X_train.csv')
 X_train = pd.read_csv(DATA_URL_xtr)
 DATA_URL_xte = ('./data/X_test.csv')
