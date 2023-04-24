@@ -61,7 +61,7 @@ predictions = pd.concat([predictions_tr_, predictions_te_], axis=0).reset_index(
 df = pd.concat([df, predictions], axis=1)
 
 fig=plt.figure()
-sns.factorplot(y=df['Prediction'], y=df['Response'], data=df, kind='bar')
+sns.factorplot(x=df['Prediction'], y=df['Response'], data=df, kind='bar')
 st.pyplot(fig)
 
 
