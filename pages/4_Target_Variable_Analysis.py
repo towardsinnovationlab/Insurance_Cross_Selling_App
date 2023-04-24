@@ -28,8 +28,8 @@ st.title("Target Variable Analysis")
 
 
 st.markdown("""
-The outcome is a binary variable with 1 value the policyholder is interested in purchasing the vehicle insurance, 
-instead with 0 value the policyholder is not interested.
+The outcome is a binary variable with 1 value for policyholders interested in purchasing the vehicle insurance, 
+instead with 0 value for policyholders not interested in it.
 
 Target variable shows imbalanced classes, where only 12% of policyholders would buy the vehicle coverage.
 """)
