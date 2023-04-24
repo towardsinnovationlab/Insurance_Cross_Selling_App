@@ -100,7 +100,7 @@ y_test_ = y_test_.flatten()
 y_pred = y_pred.flatten()
 df = pd.DataFrame({'Actual': y_test_, 'Predicted': y_pred})
 fig=plt.figure()
-sns.barplot(x='value', hue='variable', kind='count', data=df)
+sns.countplot(x='value', hue='variable', data=df)
 plt.title('True vs Predicted Labels')
 st.pyplot(fig)
 
