@@ -69,7 +69,7 @@ print('HGBM evaluation on cross-sell prediction')
 df1
 
 # compute the tpr and fpr from the prediction
-fpr, tpr, thresholds = roc_curve(y_test, predictions_t)
+fpr, tpr, thresholds = roc_curve(y_test, predictions_te)
 
 # Plot the ROC curve
 plt.rcParams['figure.figsize']=(10,5)
@@ -85,7 +85,7 @@ plt.legend(loc="lower right")
 
 # Adjust the threshold and compute the true positive rate (TPR) and false positive rate (FPR)
 threshold = 0.2
-y_pred = np.where(predictions_t >= threshold, 1, 0)
+y_pred = np.where(predictions_te >= threshold, 1, 0)
 fpr_new, tpr_new, _ = roc_curve(y_test, y_pred)
 
 # Plot the new point on the ROC curve
