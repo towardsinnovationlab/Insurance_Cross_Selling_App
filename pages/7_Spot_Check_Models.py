@@ -103,6 +103,8 @@ axes = plt.gca()
 axes.set_ylim([0,1.1])
 st.pyplot(fig)
 
+st.subheader("Check Calibration Models")
+
 # check LR calibration
 # Generate probability predictions from your model
 probabilities = LR_classifier.predict_proba(X_test)
@@ -112,7 +114,7 @@ predicted_probabilities = probabilities[:, 1]
 test_outcomes = y_test
 
 # Generate the calibration curve data
-calibration_curve_data = calibration_curve(test_outcomes, predicted_probabilities, n_bins=10)
+calibration_curve_data = calibration_curve(test_outcomes, predicted_probabilities, n_bins=5)
 
 # Plot the calibration curve
 fig = plt.figure()
