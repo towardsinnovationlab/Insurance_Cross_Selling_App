@@ -27,7 +27,7 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 st.title("Best Model Prediction: Hist Gradient Boosting Machine")
 
 st.markdown("""
-Hist Gradient Boosting Machine shows the best performance, then it's been fine tuned and here the results: 
+Hist Gradient Boosting Machine shows the best performance, then it's been fine tuned with threshold optimization and here the results: 
 """)
 
 
