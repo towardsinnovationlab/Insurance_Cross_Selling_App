@@ -34,6 +34,8 @@ in terms of calibration for the evaluation it is a calibrated model.
 
 For this job Logistic Regression (LR) has been compared with Naive Bayes model (GNB), and Hist Gradient Boosting Machine (HGBM).
 
+Each model is evaluated if it is properly calibrated, and eventually, is applied the Platt Scaling to perform a well-calibrated classifier.
+
 """)
 
 
