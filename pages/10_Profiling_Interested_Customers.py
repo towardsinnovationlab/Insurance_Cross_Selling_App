@@ -46,12 +46,12 @@ df.drop(['id'], axis=1, inplace=True)
 
 numerical_cols = [var for var in df.columns if df[var].dtype in ['float64','int64']]
 
-df_1 = df.copy()
+df_2 = df.copy()
 
-df_1 = df_1[df_1['Response']==1]
+df_2 = df_2[df_2['Response']==1]
 
 # Select numerical columns
-num_1 = df_1[numerical_cols]
+num_1 = df_2[numerical_cols]
 
 # Standardization of data
 sc = StandardScaler()
@@ -65,7 +65,7 @@ labels = kmeans.predict(num_sc)
 cluster_num = num_1.copy()
 cluster_num['kmeans_cluster'] = labels
 
-df_cluster = pd.concat([df_1, cluster_num['kmeans_cluster']], axis=1)
+df_cluster = pd.concat([df_2, cluster_num['kmeans_cluster']], axis=1)
 
 st.subheader('Group clusters by Annual Premium')
 # Group clusters by Annual Premium
