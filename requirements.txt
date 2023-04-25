@@ -6,5 +6,4 @@ matplotlib
 seaborn
 scipy
 scikit-learn==1.0.2
-requests
 pickle5
