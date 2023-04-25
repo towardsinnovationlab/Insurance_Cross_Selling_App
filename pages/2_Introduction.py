@@ -14,7 +14,7 @@ Gradient Boosting Machine. The ensemble model shows the best performance.
 
 In the second step, has been profiled customers interested in the purchasing coverage using K-means clustering method on numerical features 
 and then applying the split to the all data set. In this way has been possible to understand relationships between 
-numerical features as Annaul Premium and Age with categorical features as Vehicle Age, Gender and Vehicle Damage. 
+numerical features as Annaul Premium and Age with categorical features. 
 
 ### Data Description
 
