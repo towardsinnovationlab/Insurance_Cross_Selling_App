@@ -8,4 +8,4 @@ st.markdown("""
         **👈 Select a page from the dropdown on the left** to see some applications of the app!"""
         )
 
-st.image("./images/Cross-Selling-Tips.jpg", caption="Ref. agentenews.com" , width=500)
+st.image("./images/cross_selling_homepage.jpg", width=500)
