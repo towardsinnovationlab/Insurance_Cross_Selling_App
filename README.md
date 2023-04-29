@@ -1,6 +1,6 @@
 # Insurance_Cross_Selling_App
 
-![](images/Cross-Selling-Tips.jpg)
+![](images/cross_selling_homepage.jpeg)
 Ref. agentenews.com
 
 
