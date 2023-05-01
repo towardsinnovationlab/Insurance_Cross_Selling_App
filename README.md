@@ -1,5 +1,10 @@
 # Insurance_Cross_Selling_App
 
+Go to the article: https://medium.com/@c.giancaterino/cross-selling-web-app-on-streamlit-cloud-205108d9b72b
+
+Go to the app: https://tinyurl.com/bszhxuw7
+
+
 ![](images/cross_selling_homepage.jpg)
 
 
@@ -16,5 +21,3 @@ In this project, using a dataset coming from an Hackathon, the goal is to predic
 This goal is relevant for Insurance Companies because in last years they're are becoming data-driven oriented and customer oriented following other Companies strategy from different fields. Cross-selling modelling can lead Insurance Companies towards marketing strategies oriented to raising revenue.
 
 A Web App is a storytelling tool for the comunication inside the office and the organization about results, relevant features and understand in a friendly way data providing at the management a tool to take decisions.
-
-App link: https://tinyurl.com/bszhxuw7
