@@ -17,4 +17,4 @@ This goal is relevant for Insurance Companies because in last years they're are 
 
 A Web App is a storytelling tool for the comunication inside the office and the organization about results, relevant features and understand in a friendly way data providing at the management a tool to take decisions.
 
-App link: https://towardsinnovationlab-insurance-cross-1-cross-selling-app-sa9fqu.streamlit.app/
+App link: https://tinyurl.com/bszhxuw7
