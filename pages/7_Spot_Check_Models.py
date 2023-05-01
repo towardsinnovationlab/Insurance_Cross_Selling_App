@@ -32,7 +32,7 @@ st.markdown("""
 Logistic Regression (LR) is used as a benchmark model, because it is usually used as reference in Insurance, and also because 
 in terms of calibration for the evaluation it is a calibrated model. 
 
-For this job Logistic Regression (LR) has been compared with Naive Bayes model (GNB), and Hist Gradient Boosting Machine (HGBM).
+For this job Logistic Regression (LR) has been compared with Gaussian Naive Bayes model (GNB), and Histogram-based Gradient Boosting Machine (HGBM).
 
 Each model is evaluated if it is properly calibrated, and eventually, is applied the Platt Scaling to perform a well-calibrated classifier.
 
