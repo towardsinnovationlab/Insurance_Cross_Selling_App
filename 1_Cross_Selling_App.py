@@ -10,4 +10,8 @@ st.markdown("""
 
 st.image("./images/cross_selling_homepage.jpg", width=500)
 
+import streamlit as st 
+
+st.write("check out this [link](https://medium.com/@c.giancaterino/cross-selling-web-app-on-streamlit-cloud-205108d9b72b)")
+
 
