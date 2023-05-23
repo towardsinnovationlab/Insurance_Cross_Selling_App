@@ -10,4 +10,6 @@ st.markdown("""
 
 st.image("./images/cross_selling_homepage.jpg", width=500)
 
-Read the article [](https://medium.com/@c.giancaterino/cross-selling-web-app-on-streamlit-cloud-205108d9b72b)
+url = 'https://medium.com/@c.giancaterino/cross-selling-web-app-on-streamlit-cloud-205108d9b72b'
+
+st.write("Read the article: webbrowser.open_new_tab(url)")
